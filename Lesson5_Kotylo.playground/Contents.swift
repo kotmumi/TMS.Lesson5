@@ -61,30 +61,43 @@ enum Grade: Int {
     case C = 30
     case D = 20
     case F = 10
-    
-    func getLetterGrade(score: Int) -> Grade? {
-        switch score {
-        case 41...50:
-            return .A
-        case 31...40:
-            return .B
-        case 21...30:
-            return .C
-        case 11...20:
-            return .D
-        case 0...10:
-            return .F
-        default:
-            return nil
-        }
-    }
-    
-    func printExamResult(name: String, score: Int) -> String {
-        if let grade = getLetterGrade(score: score) {
-            return "\(name) received \(String(describing: self)) (Score: \(score))"
-        } else {
-            return "\(name) received invalid score: \(score)"
-        }
+    case unknown
+}
+
+func getLetterGrade(score: Int) -> Grade? {
+    switch score {
+    case 41...50:
+        return .A
+    case 31...40:
+        return .B
+    case 21...30:
+        return .C
+    case 11...20:
+        return .D
+    case 0...10:
+        return .F
+    default:
+        return nil
     }
 }
+
+func printExamResult(name: String, score: Int) -> String {
+    if let grade = getLetterGrade(score: score) {
+        return "\(name) received \(String(describing: grade)) (Score: \(score))"
+    } else {
+        return "\(name) received invalid score: \(score)"
+    }
+}
+
+//Test
+print("------------task 2------------")
+print(getLetterGrade(score: 12) ?? .unknown )
+print(getLetterGrade(score: 40) ?? .unknown )
+print(getLetterGrade(score: 51) ?? .unknown)
+print(getLetterGrade(score: -1) ?? .unknown)
+print(printExamResult(name: "John", score: 45))
+print(printExamResult(name: "Ivan", score: 11))
+print(printExamResult(name: "Anton", score: 0))
+print(printExamResult(name: "Victor", score: -10))
+
 
