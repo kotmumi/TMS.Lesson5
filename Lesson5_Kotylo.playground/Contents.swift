@@ -34,6 +34,16 @@ enum Currency: String {
     }
 }
 
+//Test
+print("------------task 1------------")
+print(Currency.USD.getExchangeRate(to: .EUR) ?? "no exchange rate")
+print(Currency.USD.getExchangeRate(to: .BYN) ?? "no exchange rate")
+print(Currency.BYN.getExchangeRate(to: .EUR) ?? "no exchange rate")
+print(Currency.USD.convertCurrency(amount: 200, to: .BYN) ?? "no exchange rate")
+print(Currency.EUR.convertCurrency(amount: 521.2, to: .BYN) ?? "no exchange rate")
+print(Currency.EUR.convertCurrency(amount: 25.19, to: .USD) ?? "no exchange rate")
+
+
 // MARK: -2. Анализатор результатов экзамена:
 
 //•   Создайте enum Grade с кейсами A, B, C, D, F.  Каждому кейсу присвойте rawValue типа Int, представляющий числовой балл (например, A = 90, B = 80 и т.д.).
@@ -54,7 +64,7 @@ enum Grade: Int {
     
     func getLetterGrade(score: Int) -> Grade? {
         switch score {
-        case 41...50
+        case 41...50:
             return .A
         case 31...40:
             return .B
