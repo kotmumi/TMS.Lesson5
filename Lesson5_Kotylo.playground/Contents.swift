@@ -10,4 +10,19 @@ enum Currency: String {
     case USD = "USD"
     case EUR = "EUR"
     case BYN = "BYN"
+    
+    func getExchangeRate(to other: Currency) -> Double? {
+        switch (self, other) {
+        case (.USD, .EUR):
+            return 0.93
+        case (.USD, .BYN):
+            return 3.27
+        case (.BYN, .USD):
+            return 0.31
+        case (.EUR, .BYN):
+            return 3.49
+        default:
+            return nil
+        }
+    }
 }
