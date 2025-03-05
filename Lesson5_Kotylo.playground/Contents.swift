@@ -34,4 +34,12 @@ enum Grade: Int {
             return nil
         }
     }
+    
+    func printExamResult(name: String, score: Int) -> String {
+        if let grade = getLetterGrade(score: score) {
+            return "\(name) received \(String(describing: self)) (Score: \(score))"
+        } else {
+            return "\(name) received invalid score: \(score)"
+        }
+    }
 }
