@@ -25,4 +25,11 @@ enum Currency: String {
             return nil
         }
     }
+    
+    func convertCurrency(amount: Double, to other: Currency) -> Double? {
+        guard let rate = getExchangeRate(to: other) else {
+            return nil
+        }
+        return amount * rate
+    }
 }
